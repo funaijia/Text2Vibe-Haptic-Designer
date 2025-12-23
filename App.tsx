@@ -9,7 +9,6 @@ const App: React.FC = () => {
   const [analysis, setAnalysis] = useState<AnalysisState>({ status: 'idle', data: null });
   const [isVibrating, setIsVibrating] = useState(false);
   const [debugLog, setDebugLog] = useState<string | null>(null);
-  const [isSnapshotMode, setIsSnapshotMode] = useState(false);
   const vibrationTimeoutRef = useRef<number | null>(null);
 
   const handleAnalyze = async () => {
@@ -78,7 +77,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen w-full flex flex-col items-center p-4 transition-all ${isSnapshotMode ? 'bg-[#000]' : 'max-w-md mx-auto pb-32'}`}>
+    <div className="min-h-screen w-full flex flex-col items-center p-4 max-w-md mx-auto pb-32">
       <header className="w-full py-4 mb-4 flex justify-between items-start">
         <div>
           <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
@@ -86,21 +85,10 @@ const App: React.FC = () => {
           </h1>
           <p className="text-gray-500 text-sm italic">Standard Compliant (IEEE 2861.3)</p>
         </div>
-        
-        <button 
-          onClick={() => setIsSnapshotMode(!isSnapshotMode)}
-          className={`p-2 rounded-lg border transition-all flex flex-col items-center gap-1 ${isSnapshotMode ? 'bg-primary border-primary text-secondary' : 'bg-surface border-gray-700 text-gray-400'}`}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          <span className="text-[10px] font-bold">{isSnapshotMode ? "退出模式" : "截图模式"}</span>
-        </button>
       </header>
 
-      <main className={`w-full flex-1 flex flex-col ${isSnapshotMode ? 'max-w-3xl' : ''}`}>
-        <div className={`flex flex-col gap-3 mb-6 ${isSnapshotMode ? 'hidden' : ''}`}>
+      <main className="w-full flex-1 flex flex-col">
+        <div className="flex flex-col gap-3 mb-6">
           <textarea
             className="w-full bg-surface text-white rounded-xl p-4 border border-gray-700 focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none transition-all placeholder-gray-500 shadow-inner min-h-[120px]"
             placeholder="输入含声音的文字，例如：机关枪扫射、清脆的点击声..."
@@ -130,7 +118,7 @@ const App: React.FC = () => {
         />
 
         {debugLog && (
-          <div className={`w-full bg-black/50 border border-gray-800 rounded-lg p-3 mb-4 font-mono text-[9px] text-gray-400 shadow-inner ${isSnapshotMode ? '' : 'max-h-64 overflow-y-auto'}`}>
+          <div className="w-full bg-black/50 border border-gray-800 rounded-lg p-3 mb-4 font-mono text-[9px] text-gray-400 shadow-inner max-h-64 overflow-y-auto">
             <div className="flex justify-between items-center border-b border-gray-800 pb-1 mb-2">
                <span className="uppercase tracking-widest text-gray-600 font-bold">Standard Debug Console</span>
             </div>
@@ -138,7 +126,7 @@ const App: React.FC = () => {
           </div>
         )}
 
-        <div className={isSnapshotMode ? "mt-8 pb-12" : "fixed bottom-0 left-0 right-0 p-4 bg-[#121212]/90 backdrop-blur-lg border-t border-gray-800 flex justify-center z-50"}>
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#121212]/90 backdrop-blur-lg border-t border-gray-800 flex justify-center z-50">
           <div className="w-full max-w-md">
             <button
               onClick={handleExportHE}

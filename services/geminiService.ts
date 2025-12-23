@@ -23,6 +23,9 @@ export const analyzeTextForVibration = async (text: string): Promise<VibrationCo
       3. 参数限制：
          - baseFrequency: 0-100 (50为标准马达谐振点)。
          - intensity: 0-100。
+
+      4. 语言要求：
+         - **请务必使用中文编写 reasoning (设计说明) 字段**，解释你为何选择这些参数。
       
       返回格式: JSON。`,
       config: {

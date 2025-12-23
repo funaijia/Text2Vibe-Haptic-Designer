@@ -105,7 +105,7 @@ const ParameterCard: React.FC<ParameterCardProps> = ({ config, loading, onPlay, 
             <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 ${isEmpty ? 'text-gray-700' : 'text-blue-400'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span className={`text-xs font-bold uppercase tracking-widest ${isEmpty ? 'text-gray-700' : 'text-blue-400 text-shadow-glow'}`}>Standard Reasoning</span>
+            <span className={`text-xs font-bold uppercase tracking-widest ${isEmpty ? 'text-gray-700' : 'text-blue-400 text-shadow-glow'}`}>设计说明 / Reasoning</span>
           </div>
           <p className={`text-sm italic leading-relaxed ${isEmpty ? 'text-gray-700' : 'text-gray-300'}`}>
             {isEmpty ? "等待输入分析内容..." : `"${config.reasoning}"`}
