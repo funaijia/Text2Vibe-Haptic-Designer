@@ -1,0 +1,5 @@
+{
+  "name": "Text2Vibe",
+  "description": "An Android-focused web app that analyzes text for sound/motion context using Gemini and converts it into haptic feedback (vibration) patterns.",
+  "requestFramePermissions": []
+}
